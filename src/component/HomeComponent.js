@@ -1,12 +1,22 @@
 import React from 'react';
-import { Card, CardFooter, CardTitle } from 'reactstrap';
+import { Card, CardTitle } from 'reactstrap';
 
+const cardStyle = {
+    color: 'blue',
+    backgroundColor: 'lightblue',
+    height: '100%',
+    width: '100%',
+}
+
+const cardTitleStyle = {
+    textAlign: 'center',
+}
 
 function RenderHomeItem({status, onClick}){
     return (
-        <Card onClick= {()=>onClick(status.id)} height="100" width="100">
-            <CardTitle className="mr-auto ml-1 mt-1">{status.id}</CardTitle>
-            <CardTitle className="ml-auto mr-5 mb-1">{status.Count}</CardTitle>
+        <Card style={cardStyle} onClick= {()=>onClick(status.id)} >
+            <CardTitle className="mr-auto ml-1"><b>{status.id}</b></CardTitle>
+            <CardTitle style={cardTitleStyle}><b>{status.Count}</b></CardTitle>
         </Card>
     );
 }
@@ -47,7 +57,7 @@ const Home = (props) => {
 
     return (
         <div className="container mt-5">
-            <div className="row">
+            <div className="row justify-content-center">
                 {home}
             </div>
         </div>
