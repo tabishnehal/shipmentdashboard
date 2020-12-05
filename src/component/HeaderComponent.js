@@ -48,13 +48,9 @@ class Header extends Component {
                     </NavItem>
                     <NavItem>
                         <NavLink className="nav-link" to="/profile">
-                            <img src="FrontendAssets/profile.svg" height="20" width="20"
+                            <img className="mr-2" src="FrontendAssets/profile.svg" height="20" width="20"
                             alt="Profile" />
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink className="nav-link" to="/profile">
-                            <span className="fa fa-chevron-down fa-sm"></span>
+                            <span className="fa fa-chevron-down fa-sm">  </span>
                         </NavLink>
                     </NavItem>
                 </Nav>
