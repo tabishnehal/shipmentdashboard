@@ -22,9 +22,9 @@ class Header extends Component {
     return(
     <React.Fragment>
       <Navbar light expand="md">
-        <div className="container">
+        <div className="container-fluid">
             <NavbarToggler onClick={this.toggleNav} />
-            <NavbarBrand className="mr-auto" href="/">
+            <NavbarBrand className="mr-auto ml-5" href="/">
                 <img src="FrontendAssets/logo.svg" height="40" width="40"
                 alt="Intugine" />
                 <b> Intugine</b>

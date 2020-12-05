@@ -1,0 +1,25 @@
+.row-content {
+    margin:0px auto;
+    padding: 20px 0px 10px 0px;
+    border-bottom: 1px ridge;
+}
+
+.right-col {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.tableStyle {
+    font-size: x-small;
+    font-weight: bolder;
+}
+.tableStyle1 {
+    font-size: x-small;
+    font-weight: bold;
+}
+
+.tablehead {
+    color: darkgrey;
+    font-size: xx-small;
+}

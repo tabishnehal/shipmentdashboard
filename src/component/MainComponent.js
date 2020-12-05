@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Card } from "reactstrap";
 import Home from './HomeComponent';
 import Header from './HeaderComponent';
 import ShipmentDetail from './ShipmentDetailComponent';
+import LeftTimeLine from "./LeftTimelineComponent";
 import axios from 'axios';
 
 class Main extends Component {
@@ -11,12 +13,17 @@ class Main extends Component {
 
     this.state = {
         shipments: [],
-        selectedShipment: null
+        selectedShipment: 'DEL',
+        selectedShipmentRow: '5d309ea2048c0a3321692de8',
     };
   }
 
   onShipmentSelect(shipmentId) {
     this.setState({ selectedShipment: shipmentId});
+  }
+
+  onShipmentRowSelect(shipmentRowId) {
+    this.setState({ selectedShipmentRow: shipmentRowId});
   }
 
   componentDidMount(){
@@ -41,7 +48,17 @@ class Main extends Component {
       <div>
         <Header />
         <Home shipments={this.state.shipments} onClick={(shipmentId) => this.onShipmentSelect(shipmentId)} />
-        <ShipmentDetail shipments={this.state.shipments.filter((shipment) => shipment.current_status_code === this.state.selectedShipment)} />
+        <div className="container-fluid">
+            <div className="row row-content">
+                <Card className="right-col col-3">
+                    <LeftTimeLine shipmentRow = {this.state.shipments.filter((shipmentRow) => shipmentRow._id === this.state.selectedShipmentRow)[0]} />
+                </Card>
+                <Card className="right-col col-9">
+                    <ShipmentDetail shipments={this.state.shipments.filter((shipment) => shipment.current_status_code === this.state.selectedShipment)} 
+                    onClick={(shipmentRowId) => this.onShipmentRowSelect(shipmentRowId)} />
+                </Card>
+            </div>
+        </div>
       </div>
     );
   }
