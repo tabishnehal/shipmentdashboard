@@ -1,50 +1,85 @@
 import React from 'react';
-import {Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle} from 'reactstrap';
+import {Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Table} from 'reactstrap';
 
-function RenderTableView({shipment}){
-    return (
-        <div className="col-12 col-md-5 m-1">
-            <Card>
-                <CardImg width="100%" src={dish.image} alt={dish.name} />
-                <CardBody>
-                    <CardTitle>{dish.name}</CardTitle>
-                    <CardText>{dish.description}</CardText>
-                </CardBody>
-            </Card>
-        </div>
-    );
+const columnStyle = {
+    color: 'green',
 }
 
-function RenderComments({comments}){
-    if (comments!=null){
-        const listComment = (comments).map((comment) => {
+function RenderRightTable({shipments}){
+    if (shipments!=null){
+        const listShipmnet = (shipments).map((shipment) => {
             return(
-                <li key={comment.id}>
+                    <tr key={shipment.id} itemScope="row" onClick={() => RenderLeftTimeline(shipment)}>
+                        <td>{shipment.awbno}</td>
+                        <td>{shipment.carrier}</td>
+                        <td>{shipment.from}</td>
+                        <td>{shipment.to}</td>
+                        <td>{shipment.carrier}</td>
+                        <td>{shipment.pickup_date ? new Intl.DateTimeFormat('en-US', { year: 'numeric', day: '2-digit', month: '2-digit'}).format(new Date(Date.parse(shipment.pickup_date))):''}
+                        </td>
+                        <td>{shipment.extra_fields ? new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'numeric', day: 'numeric'}).format(new Date(Date.parse(shipment.extra_fields.expected_delivery_date))):''}
+                        </td>
+                        <td style={columnStyle}>{shipment.current_status}</td>
+                    </tr>
+            );
+        });
+        return (
+            <tbody>
+                {listShipmnet}
+            </tbody>
+        );
+    }
+}
+
+function RenderLeftTimeline({shipment}){
+    if (shipment!=null){
+        const listScan = shipment.scan.map((element) => {
+            return(
+                <li>
                     <div>
-                    <p>{comment.comment}</p>
-                    <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                    <p>{element.location} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(element.time)))}</p>
                     </div>
                 </li>
             );
         });
         return(
-            <div className="col-12 col-md-5 m-1">
-                <h4>Comments</h4>
-                <ul className="list-unstyled">
-                    {listComment}
-                </ul>
-            </div>
+            <ul className="list-unstyled">
+                {listScan}
+            </ul>
+        );
+    }
+    else{
+        return(
+            <div></div>
         );
     }
 }
 
-const DishDetail = (props) => {
-    if (props.dish != null){
+const ShipmentDetail = (props) => {
+    if (props.shipments != null){
         return (
             <div className="container">
                 <div className="row">
-                    <RenderDish dish={props.dish} />
-                    <RenderComments comments={props.dish.comments} />
+                    <div className="col-12 col-md-6 ml-auto m-1">
+                        <Table hover>
+                            <thead>
+                                <tr>
+                                    <th>AWB NUMBER</th>
+                                    <th>TRANSPORTER</th>
+                                    <th>SOURCE</th>
+                                    <th>DESTINATION</th>
+                                    <th>BRAND</th>
+                                    <th>START DATE</th>
+                                    <th>ETD</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <RenderRightTable shipments={props.shipments} />
+                        </Table>
+                    </div>
+                    <div className="col-12 col-md-4 mr-auto m-2">
+                        <RenderLeftTimeline/>
+                    </div>
                 </div>
             </div>
         );
@@ -55,4 +90,4 @@ const DishDetail = (props) => {
         );
     }
 }
-export default DishDetail;
+export default ShipmentDetail;

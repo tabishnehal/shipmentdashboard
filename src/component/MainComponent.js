@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from './HomeComponent';
 import Header from './HeaderComponent';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import ShipmentDetail from './ShipmentDetailComponent';
 import axios from 'axios';
 
 class Main extends Component {
@@ -10,8 +10,13 @@ class Main extends Component {
     super(props);
 
     this.state = {
-        shipments: []
+        shipments: [],
+        selectedShipment: null
     };
+  }
+
+  onShipmentSelect(shipmentId) {
+    this.setState({ selectedShipment: shipmentId});
   }
 
   componentDidMount(){
@@ -35,10 +40,8 @@ class Main extends Component {
     return (
       <div>
         <Header />
-        <Switch>
-          <Route exact path="/home" component={() => <Home shipments={this.state.shipments} /> } />
-          <Redirect to="/home" />
-        </Switch>
+        <Home shipments={this.state.shipments} onClick={(shipmentId) => this.onShipmentSelect(shipmentId)} />
+        <ShipmentDetail shipments={this.state.shipments.filter((shipment) => shipment.current_status_code === this.state.selectedShipment)} />
       </div>
     );
   }

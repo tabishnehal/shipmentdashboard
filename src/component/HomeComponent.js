@@ -14,7 +14,7 @@ const cardTitleStyle = {
 
 function RenderHomeItem({status, onClick}){
     return (
-        <Card style={cardStyle} onClick= {()=>onClick(status.id)} >
+        <Card style={cardStyle} onClick={() => onClick(status.id)} >
             <CardTitle className="mr-auto ml-1"><b>{status.id}</b></CardTitle>
             <CardTitle style={cardTitleStyle}><b>{status.Count}</b></CardTitle>
         </Card>
@@ -41,12 +41,16 @@ const Home = (props) => {
             dexCount+=1;
         }
         else{
-            if(shipment.current_status_code === "NFI"){
-                nfiCount+=1;
-            }
+            nfiCount+=1;
         }
     });
-    var Counter = [{"id":"DEL","Count":delCount},{"id":"INT","Count":intCount},{"id":"OOD","Count":oodCount},{"id":"DEX","Count":dexCount},{"id":"NFI","Count":nfiCount}];
+    var Counter = [
+        {"id":"DEL","Count":delCount},
+        {"id":"INT","Count":intCount},
+        {"id":"OOD","Count":oodCount},
+        {"id":"DEX","Count":dexCount},
+        {"id":"NFI","Count":nfiCount}
+    ];
     const home = Counter.map((status) => {
         return (
             <div key={status.id} className="col-2 m-1">
