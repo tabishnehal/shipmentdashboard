@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/shipmentdashboard/static/css/main.0aa0a548.chunk.css",
+    "main.js": "/shipmentdashboard/static/js/main.ce14de48.chunk.js",
+    "main.js.map": "/shipmentdashboard/static/js/main.ce14de48.chunk.js.map",
+    "runtime-main.js": "/shipmentdashboard/static/js/runtime-main.412672b0.js",
+    "runtime-main.js.map": "/shipmentdashboard/static/js/runtime-main.412672b0.js.map",
+    "static/css/2.f5af4b20.chunk.css": "/shipmentdashboard/static/css/2.f5af4b20.chunk.css",
+    "static/js/2.5fa2bcbc.chunk.js": "/shipmentdashboard/static/js/2.5fa2bcbc.chunk.js",
+    "static/js/2.5fa2bcbc.chunk.js.map": "/shipmentdashboard/static/js/2.5fa2bcbc.chunk.js.map",
+    "static/js/3.65110e27.chunk.js": "/shipmentdashboard/static/js/3.65110e27.chunk.js",
+    "static/js/3.65110e27.chunk.js.map": "/shipmentdashboard/static/js/3.65110e27.chunk.js.map",
+    "index.html": "/shipmentdashboard/index.html",
+    "static/css/2.f5af4b20.chunk.css.map": "/shipmentdashboard/static/css/2.f5af4b20.chunk.css.map",
+    "static/css/main.0aa0a548.chunk.css.map": "/shipmentdashboard/static/css/main.0aa0a548.chunk.css.map",
+    "static/js/2.5fa2bcbc.chunk.js.LICENSE.txt": "/shipmentdashboard/static/js/2.5fa2bcbc.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/shipmentdashboard/static/media/fontawesome-webfont.f691f37e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.412672b0.js",
+    "static/css/2.f5af4b20.chunk.css",
+    "static/js/2.5fa2bcbc.chunk.js",
+    "static/css/main.0aa0a548.chunk.css",
+    "static/js/main.ce14de48.chunk.js"
+  ]
+}
