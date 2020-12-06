@@ -12,7 +12,6 @@ class Main extends Component {
     super(props);
 
     this.state = {
-        active: false,
         shipments: [],
         selectedShipment: 'DEL',
         selectedShipmentRow: '5d309ea2048c0a3321692de8',
@@ -20,7 +19,8 @@ class Main extends Component {
   }
 
   onShipmentSelect(shipmentId) {
-    this.setState({ selectedShipment: shipmentId});
+    this.setState({ selectedShipment: shipmentId,
+    });
   }
 
   onShipmentRowSelect(shipmentRowId) {

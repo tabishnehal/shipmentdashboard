@@ -7,7 +7,8 @@ function RenderLeftTimeline({shipmentRow}){
         const listScan = shipmentRow.scan.map((sc) => {
             return(
                 <tr key={sc.time}>
-                    <td>|<span className="fa fa-circle fa-sm nodeStyle"></span><span className="fa fa-minus fa-sm mt-2 nodeStyle"></span>
+                    <td className="tdStyle">|<span className="fa fa-circle fa-sm nodeStyle"></span><span className="fa fa-minus fa-sm nodeStyle"></span>
+                    <span className="fa fa-minus fa-sm nodeStyle"></span>
                     </td>
                     <td className={sc.location.includes("Delivered")? "statusGreen":""}>{sc.location}</td>
                     <td className={sc.location.includes("Delivered")? "statusGreen":""}>{moment.utc(sc.time).local().format("DD-MM-YYYY")}</td>
@@ -18,7 +19,7 @@ function RenderLeftTimeline({shipmentRow}){
         return(
             <tbody>
                 <tr>
-                    <td><img src="FrontendAssets/destination.svg" alt="destination" /></td>
+                    <td className="tdStyleCenter"><img src="FrontendAssets/destination.svg" alt="destination" /></td>
                 </tr>
                 {listScan}
                 <tr>

@@ -56,14 +56,14 @@
     font-size: 24px;
 }
 
-.cardStyle1 {
-    height: 90px;
-    width: 90px;
-    margin: 2px 2px 2px 2px;
-    color: lightblue;
-    background-color: blue;
-}
-
 .statusGreen {
     color: green;
+}
+
+.tdStyle {
+    text-align: right;
+    font-weight: bolder;
+}
+.tdStyleCenter {
+    text-align: center;
 }

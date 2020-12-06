@@ -9,8 +9,8 @@ function RenderRightTable({shipments, onClick}){
                     <tr key={shipment._id} onClick={() => onClick(shipment._id)}>
                         <td>{shipment.awbno}</td>
                         <td>{shipment.carrier}</td>
-                        <td>{shipment.from}</td>
-                        <td>{shipment.to}</td>
+                        <td>{shipment.from?shipment.from:''}</td>
+                        <td>{shipment.to?shipment.to:''}</td>
                         <td>{shipment.carrier}</td>
                         <td>{shipment.pickup_date ? moment.utc(shipment.pickup_date).local().format("DD/MM/YYYY"):''}</td>
                         <td>{shipment.extra_fields ? moment.utc(shipment.extra_fields.expected_delivery_date).local()
