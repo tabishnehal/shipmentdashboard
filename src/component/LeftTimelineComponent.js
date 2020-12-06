@@ -6,10 +6,12 @@ function RenderLeftTimeline({shipmentRow}){
     if (shipmentRow.scan!=null){
         const listScan = shipmentRow.scan.map((sc) => {
             return(
-                <tr>
-                    <td>{sc.location}</td>
-                    <td>{moment.utc(sc.time).local().format("DD-MM-YYYY")}</td>
-                    <td>{moment.utc(sc.time).local().format("HH-MM")}</td>
+                <tr key={sc.time}>
+                    <td>|<span className="fa fa-circle fa-sm nodeStyle"></span><span className="fa fa-minus fa-sm mt-2 nodeStyle"></span>
+                    </td>
+                    <td className={sc.location.includes("Delivered")? "statusGreen":""}>{sc.location}</td>
+                    <td className={sc.location.includes("Delivered")? "statusGreen":""}>{moment.utc(sc.time).local().format("DD-MM-YYYY")}</td>
+                    <td className={sc.location.includes("Delivered")? "statusGreen":""}>{moment.utc(sc.time).local().format("HH-MM")}</td>
                 </tr>
             );
         });
@@ -35,7 +37,7 @@ function RenderLeftTimeline({shipmentRow}){
 const LeftTimeLine = (props) => {
     if (props.shipmentRow != null){
         return (
-            <Table className="tableStyle1" hover responsive size="sm">
+            <Table className="tableStyle1 mt-4 mb-4" borderless responsive size="sm">
                 <RenderLeftTimeline shipmentRow={props.shipmentRow}/>
             </Table>
         );

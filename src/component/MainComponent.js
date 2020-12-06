@@ -12,6 +12,7 @@ class Main extends Component {
     super(props);
 
     this.state = {
+        active: false,
         shipments: [],
         selectedShipment: 'DEL',
         selectedShipmentRow: '5d309ea2048c0a3321692de8',
@@ -47,13 +48,14 @@ class Main extends Component {
     return (
       <div>
         <Header />
+        <hr className="hrStyle"></hr>
         <Home shipments={this.state.shipments} onClick={(shipmentId) => this.onShipmentSelect(shipmentId)} />
         <div className="container-fluid">
             <div className="row row-content">
-                <Card className="right-col col-3">
+                <Card className="left-col col-12 col-md-4 mt-4 mb-4 ml-4">
                     <LeftTimeLine shipmentRow = {this.state.shipments.filter((shipmentRow) => shipmentRow._id === this.state.selectedShipmentRow)[0]} />
                 </Card>
-                <Card className="right-col col-9">
+                <Card className="right-col col-12 col-md-7 ml-auto">
                     <ShipmentDetail shipments={this.state.shipments.filter((shipment) => shipment.current_status_code === this.state.selectedShipment)} 
                     onClick={(shipmentRowId) => this.onShipmentRowSelect(shipmentRowId)} />
                 </Card>

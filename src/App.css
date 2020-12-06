@@ -9,6 +9,11 @@
     max-height: 400px;
     overflow-y: auto;
 }
+.left-col {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+}
 
 .tableStyle {
     font-size: x-small;
@@ -16,10 +21,49 @@
 }
 .tableStyle1 {
     font-size: x-small;
-    font-weight: bold;
 }
 
 .tablehead {
     color: darkgrey;
-    font-size: xx-small;
+    font-size: 8px;
+}
+
+.nodeStyle {
+    color: skyblue;
+}
+
+.hrStyle {
+    border:none;
+    height: 20px;
+ 	width: 100%;
+	height: 50px;
+	margin-top: 0;
+	border-bottom: 1px solid white;
+	box-shadow: 0 5px 5px -5px #333;
+  margin: -50px auto 10px;
+}
+
+.cardStyle {
+    height: 90px;
+    width: 90px;
+    margin: 2px 2px 2px 2px;
+    color: blue;
+    background-color: lightblue;
+}
+
+.cardTitleStyle {
+    text-align: center;
+    font-size: 24px;
+}
+
+.cardStyle1 {
+    height: 90px;
+    width: 90px;
+    margin: 2px 2px 2px 2px;
+    color: lightblue;
+    background-color: blue;
+}
+
+.statusGreen {
+    color: green;
 }

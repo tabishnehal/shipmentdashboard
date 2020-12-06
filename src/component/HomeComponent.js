@@ -1,22 +1,11 @@
 import React from 'react';
 import { Card, CardTitle } from 'reactstrap';
 
-const cardStyle = {
-    color: 'blue',
-    backgroundColor: 'lightblue',
-    height: '100%',
-    width: '100%',
-}
-
-const cardTitleStyle = {
-    textAlign: 'center',
-}
-
 function RenderHomeItem({status, onClick}){
     return (
-        <Card style={cardStyle} onClick={() => onClick(status.id)} >
+        <Card className="cardStyle" onClick={() => onClick(status.id)} >
             <CardTitle className="mr-auto ml-1"><b>{status.id}</b></CardTitle>
-            <CardTitle style={cardTitleStyle}><b>{status.Count}</b></CardTitle>
+            <CardTitle className="cardTitleStyle"><b>{status.Count}</b></CardTitle>
         </Card>
     );
 }
@@ -53,7 +42,7 @@ const Home = (props) => {
     ];
     const home = Counter.map((status) => {
         return (
-            <div key={status.id} className="col-2 m-1">
+            <div key={status.id} className="col-4 col-md-2 col-lg-1">
                 <RenderHomeItem status={status} onClick={props.onClick} />
             </div>
         );

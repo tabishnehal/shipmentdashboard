@@ -24,7 +24,7 @@ class Header extends Component {
       <Navbar light expand="md">
         <div className="container-fluid">
             <NavbarToggler onClick={this.toggleNav} />
-            <NavbarBrand className="mr-auto ml-5" href="/">
+            <NavbarBrand className="mr-auto ml-3" href="/">
                 <img src="FrontendAssets/logo.svg" height="40" width="40"
                 alt="Intugine" />
                 <b> Intugine</b>

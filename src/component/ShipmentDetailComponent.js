@@ -2,10 +2,6 @@ import React from 'react';
 import {Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Table} from 'reactstrap';
 import moment from 'moment';
 
-const columnStyle = {
-    color: 'green',
-}
-
 function RenderRightTable({shipments, onClick}){
     if (shipments!=null){
         const listShipmnet = (shipments).map((shipment) => {
@@ -19,7 +15,7 @@ function RenderRightTable({shipments, onClick}){
                         <td>{shipment.pickup_date ? moment.utc(shipment.pickup_date).local().format("DD/MM/YYYY"):''}</td>
                         <td>{shipment.extra_fields ? moment.utc(shipment.extra_fields.expected_delivery_date).local()
                         .format("DD/MM/YYYY"):''} </td>
-                        <td style={columnStyle}>{shipment.current_status}</td>
+                        <td className={shipment.current_status === "Delivered"? "statusGreen":""}>{shipment.current_status}</td>
                     </tr>
             );
         });
@@ -37,7 +33,7 @@ const ShipmentDetail = (props) => {
                 <Table hover responsive size="sm">
                     <thead className="tablehead">
                         <tr>
-                            <th>AWB NUMBER     <span className="fa fa-chevron-down fa-sm"></span></th>
+                            <th>AWB NUMBER<span className="fa fa-chevron-down fa-sm"></span></th>
                             <th>TRANSPORTER</th>
                             <th>SOURCE</th>
                             <th>DESTINATION</th>
